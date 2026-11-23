@@ -4,13 +4,14 @@ import 'package:material_ui/material_ui.dart';
 import 'colors/furio_colors_extension.dart';
 import 'typography/furio_text_styles.dart';
 
+/// Bileşen temalarını Furio'nun tema renkleriyle oluşturur.
 abstract final class FurioWidgetThemes {
   static SwitchThemeData switchTheme(FurioColorsExtension colors) =>
       SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith(
           (states) => states.contains(WidgetState.disabled)
               ? colors.surface
-              : colors.onPrimary,
+              : Colors.white,
         ),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) return colors.border;
@@ -20,7 +21,7 @@ abstract final class FurioWidgetThemes {
         }),
         trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
         trackOutlineWidth: const WidgetStatePropertyAll(0),
-
+        // Boş ikon, düğmenin boyutunu iki durumda da sabit tutar.
         thumbIcon: const WidgetStatePropertyAll(Icon(null)),
       );
 
@@ -77,7 +78,7 @@ abstract final class FurioWidgetThemes {
           backgroundColor: colors.primary,
           foregroundColor: colors.onPrimary,
           disabledBackgroundColor: colors.disabled,
-          disabledForegroundColor: colors.textSecondary,
+          disabledForegroundColor: colors.border,
         ),
       );
 
@@ -97,8 +98,12 @@ abstract final class FurioWidgetThemes {
     titleSpacing: 16,
   );
 
-  static TabBarThemeData tabBar(FurioColorsExtension colors) => TabBarThemeData(
-    tabAlignment: TabAlignment.center,
+  /// Varsayılan [TabAlignment.start] kaydırılabilir sekmeler içindir.
+  static TabBarThemeData tabBar(
+    FurioColorsExtension colors, {
+    TabAlignment? tabAlignment = TabAlignment.start,
+  }) => TabBarThemeData(
+    tabAlignment: tabAlignment,
     labelPadding: const EdgeInsets.symmetric(horizontal: 12),
     labelColor: colors.primary,
     unselectedLabelColor: colors.textSecondary,

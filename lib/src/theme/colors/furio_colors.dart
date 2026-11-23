@@ -1,22 +1,31 @@
-import 'furio_palette.dart';
+import 'package:material_ui/material_ui.dart';
 
 abstract final class FurioColors {
-  static const primaryLight = FurioPalette.iris;
-  static const primaryDark = FurioPalette.lilac;
-  static const onPrimaryLight = FurioPalette.porcelain;
-  static const onPrimaryDark = FurioPalette.midnight;
-  static const surfaceLight = FurioPalette.parchment;
-  static const surfaceDark = FurioPalette.midnight;
-  static const surfaceSheetLight = FurioPalette.porcelain;
-  static const surfaceSheetDark = FurioPalette.velvet;
-  static const cardLight = FurioPalette.porcelain;
-  static const cardDark = FurioPalette.velvet;
-  static const textPrimaryLight = FurioPalette.graphite;
-  static const textPrimaryDark = FurioPalette.mist;
-  static const textSecondaryLight = FurioPalette.dusk;
-  static const textSecondaryDark = FurioPalette.haze;
-  static const borderLight = FurioPalette.seam;
-  static const borderDark = FurioPalette.charcoal;
-  static const disabledLight = FurioPalette.seam;
-  static const disabledDark = FurioPalette.charcoal;
+  static const primaryLight = Color(0xFF18181B);
+  static const primaryDark = Color(0xFFF4F4F5);
+  static const onPrimaryLight = Color(0xFFFAFAFA);
+  static const onPrimaryDark = Color(0xFF18181B);
+
+  static const secondaryLight = Color(0xFF61746D);
+  static const secondaryDark = Color(0xFF9CA9A4);
+
+  static const surfaceLight = Color(0xFFF7F7F7);
+  static const surfaceDark = Color(0xFF111111);
+  static const surfaceSheetLight = surfaceLight;
+  static const surfaceSheetDark = Color(0xFF181818);
+  static const surfaceContainerHighestLight = Color(0xFFE9EDF0);
+  static const surfaceContainerHighestDark = Color(0xFF29313A);
+
+  static const cardLight = Color(0xFFFFFFFF);
+  static const cardDark = Color(0xFF202020);
+
+  static const textPrimaryLight = Color(0xFF202020);
+  static const textPrimaryDark = Color(0xFFF9F9F9);
+  static const textSecondaryLight = Color(0xFF85858D);
+  static const textSecondaryDark = Color(0xFFABABB3);
+
+  static const borderLight = Color(0xFFEFEFEF);
+  static const borderDark = Color(0xFF363636);
+  static const disabledLight = Color(0xFFB4B4B4);
+  static const disabledDark = Color(0xFF4D4D4D);
 }

@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
+import 'colors/furio_colors.dart';
 import 'colors/furio_colors_extension.dart';
-import 'colors/furio_palette.dart';
 import 'furio_widget_themes.dart';
 import 'shapes/furio_corners.dart';
 import 'typography/furio_typography.dart';
@@ -21,30 +21,27 @@ abstract final class FurioTheme {
     final panel = semantic.card;
     final line = semantic.border;
     final accent = semantic.primary;
-    final colors =
-        ColorScheme.fromSeed(
-          seedColor: FurioPalette.iris,
-          brightness: brightness,
-        ).copyWith(
-          primary: accent,
-          onPrimary: semantic.onPrimary,
-          secondary: night ? FurioPalette.apricot : FurioPalette.copper,
-          onSecondary: night ? FurioPalette.midnight : FurioPalette.porcelain,
-          surface: canvas,
-          onSurface: ink,
-          onSurfaceVariant: muted,
-          surfaceContainerLowest: panel,
-          surfaceContainerLow: panel,
-          surfaceContainer: night ? FurioPalette.plum : FurioPalette.linen,
-          surfaceContainerHigh: night ? FurioPalette.plum : FurioPalette.linen,
-          surfaceContainerHighest: night
-              ? FurioPalette.charcoal
-              : FurioPalette.seam,
-          outline: muted,
-          outlineVariant: line,
-          error: night ? FurioPalette.blush : FurioPalette.cranberry,
-          onError: night ? FurioPalette.midnight : FurioPalette.porcelain,
-        );
+    final colors = ColorScheme.fromSeed(
+      seedColor: accent,
+      brightness: brightness,
+      primary: accent,
+      onPrimary: semantic.onPrimary,
+      secondary: night ? FurioColors.secondaryDark : FurioColors.secondaryLight,
+      onSecondary: semantic.onPrimary,
+      surface: canvas,
+      onSurface: ink,
+      onSurfaceVariant: muted,
+      surfaceContainerLowest: panel,
+      surfaceContainerLow: panel,
+      surfaceContainerHighest: night
+          ? FurioColors.surfaceContainerHighestDark
+          : FurioColors.surfaceContainerHighestLight,
+      outline: line,
+      outlineVariant: line,
+      error: Colors.red,
+      onError: semantic.onPrimary,
+      scrim: Colors.black,
+    );
     final type = FurioWidgetThemes.textTheme(semantic);
     final control = RoundedRectangleBorder(borderRadius: FurioCorners.control);
     OutlineInputBorder inputBorder(Color color, [double width = 1]) =>
@@ -60,6 +57,7 @@ abstract final class FurioTheme {
       brightness: brightness,
       colorScheme: colors,
       scaffoldBackgroundColor: canvas,
+      disabledColor: semantic.disabled,
       textTheme: type,
       appBarTheme: FurioWidgetThemes.appBar(semantic, brightness: brightness),
       cardTheme: CardThemeData(
@@ -111,7 +109,8 @@ abstract final class FurioTheme {
       checkboxTheme: CheckboxThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
-      tabBarTheme: FurioWidgetThemes.tabBar(semantic),
+      // Flutter, hizalamayı sekme çubuğunun kaydırma ayarına göre seçer.
+      tabBarTheme: FurioWidgetThemes.tabBar(semantic, tabAlignment: null),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: panel,
         indicatorColor: accent.withValues(alpha: 0.16),
@@ -120,7 +119,7 @@ abstract final class FurioTheme {
         behavior: SnackBarBehavior.floating,
         backgroundColor: ink,
         contentTextStyle: type.bodyMedium?.copyWith(color: canvas),
-        actionTextColor: night ? FurioPalette.iris : FurioPalette.lilac,
+        actionTextColor: semantic.onPrimary,
         shape: control,
       ),
     );
