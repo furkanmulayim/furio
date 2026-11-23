@@ -1,0 +1,11 @@
+.git/
+.github/
+.vscode/
+.idea/
+.dart_tool/
+build/
+coverage/
+storybook/
+pubspec.lock
+*.iml
+.DS_Store

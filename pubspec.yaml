@@ -1,0 +1,27 @@
+name: furio
+description: "Flutter uygulamaları için UI design kit."
+version: 0.0.1
+publish_to: none
+repository: https://github.com/furkanmulayim/furio
+issue_tracker: https://github.com/furkanmulayim/furio/issues
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.11.1
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/urbanist/Urbanist-Variable.ttf
+        - asset: assets/fonts/urbanist/Urbanist-Italic-Variable.ttf
+          style: italic

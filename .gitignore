@@ -1,0 +1,12 @@
+.DS_Store
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+coverage/
+pubspec.lock
+.idea/
+.vscode/
+*.iml
+
+/storybook/
