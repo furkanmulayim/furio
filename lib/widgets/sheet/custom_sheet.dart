@@ -99,7 +99,7 @@ class CustomSheet extends StatelessWidget {
                     if (onButtonPressed != null)
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                        child: CustomButton(
+                        child: CustomButton.big(
                           label: buttonText ?? 'Uygula',
                           onPressed: isButtonDisabled ? null : onButtonPressed,
                         ),

@@ -46,7 +46,7 @@ furio:
 
 | Bileşen | Özellikler |
 | --- | --- |
-| `CustomButton` | İkon, yüklenme göstergesi ve devre dışı durum |
+| `CustomButton` | `mini` ve `big` boyutları, ikon, yüklenme göstergesi ve devre dışı durum |
 | `CustomCard` | Başlık, açıklama ve özelleştirilebilir içerik |
 | `CustomTextField` | Form doğrulaması, klavye ve parola seçenekleri |
 | `CustomSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
             children: [
               const CustomTextField(label: 'Ad soyad'),
               const SizedBox(height: 16),
-              CustomButton(
+              CustomButton.big(
                 label: 'Kaydet',
                 icon: Icons.check,
                 onPressed: () {},

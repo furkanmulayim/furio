@@ -1,17 +1,20 @@
 import 'package:material_ui/material_ui.dart';
 
 import '../colors/custom_colors_extension.dart';
-import 'custom_typography.dart';
 
 class CustomTextStyles {
   const CustomTextStyles(this._colors);
+
+  static const _fontFamily = 'Urbanist';
+  static const _fontPackage = 'furio';
+  static const packageFontFamily = 'packages/$_fontPackage/$_fontFamily';
 
   final CustomColorsExtension _colors;
 
   TextStyle _style(double size, {Color? color, FontWeight? weight}) {
     return TextStyle(
-      fontFamily: CustomTypography.fontFamily,
-      package: CustomTypography.fontPackage,
+      fontFamily: _fontFamily,
+      package: _fontPackage,
       fontSize: size,
       fontWeight: weight ?? FontWeight.w500,
       fontStyle: FontStyle.normal,

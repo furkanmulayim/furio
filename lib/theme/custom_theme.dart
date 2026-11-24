@@ -4,7 +4,7 @@ import 'colors/custom_colors.dart';
 import 'colors/custom_colors_extension.dart';
 import 'custom_widget_themes.dart';
 import 'shapes/custom_corners.dart';
-import 'typography/custom_typography.dart';
+import 'typography/custom_text_styles.dart';
 
 abstract final class CustomTheme {
   static ThemeData light() => _build(Brightness.light);
@@ -44,7 +44,8 @@ abstract final class CustomTheme {
       onError: semantic.onPrimary,
       scrim: Colors.black,
     );
-    final type = CustomWidgetThemes.textTheme(semantic);
+    final styles = CustomTextStyles(semantic);
+    final buttonTextStyle = styles.size15(weight: FontWeight.w600);
     final control = RoundedRectangleBorder(borderRadius: CustomCorners.control);
     OutlineInputBorder inputBorder(Color color, [double width = 1]) =>
         OutlineInputBorder(
@@ -54,13 +55,12 @@ abstract final class CustomTheme {
 
     return ThemeData(
       useMaterial3: true,
-      fontFamily: CustomTypography.packageFontFamily,
+      fontFamily: CustomTextStyles.packageFontFamily,
       extensions: [semantic],
       brightness: brightness,
       colorScheme: colors,
       scaffoldBackgroundColor: canvas,
       disabledColor: semantic.disabled,
-      textTheme: type,
       appBarTheme: CustomWidgetThemes.appBar(semantic, brightness: brightness),
       cardTheme: CardThemeData(
         elevation: 0,
@@ -78,7 +78,7 @@ abstract final class CustomTheme {
           horizontal: 18,
           vertical: 16,
         ),
-        labelStyle: type.bodyMedium?.copyWith(color: muted),
+        labelStyle: styles.size14(color: muted),
         border: inputBorder(line),
         enabledBorder: inputBorder(line),
         disabledBorder: inputBorder(line.withValues(alpha: 0.5)),
@@ -92,23 +92,22 @@ abstract final class CustomTheme {
           minimumSize: const Size(64, 50),
           shape: control,
           side: BorderSide(color: line),
-          textStyle: type.labelLarge,
+          textStyle: buttonTextStyle,
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(shape: control, textStyle: type.labelLarge),
+        style: TextButton.styleFrom(shape: control, textStyle: buttonTextStyle),
       ),
       dividerTheme: DividerThemeData(color: line, thickness: 1, space: 24),
       bottomSheetTheme: CustomWidgetThemes.bottomSheet(semantic),
       dialogTheme: DialogThemeData(
         backgroundColor: panel,
         shape: const RoundedRectangleBorder(borderRadius: CustomCorners.panel),
-        titleTextStyle: type.titleLarge,
-        contentTextStyle: type.bodyLarge,
+        titleTextStyle: styles.size21(weight: FontWeight.w600),
+        contentTextStyle: styles.size16(),
       ),
       chipTheme: CustomWidgetThemes.chip(semantic),
       switchTheme: CustomWidgetThemes.switchTheme(semantic),
-      sliderTheme: CustomWidgetThemes.slider(semantic),
       checkboxTheme: CheckboxThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
@@ -121,7 +120,7 @@ abstract final class CustomTheme {
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
         backgroundColor: ink,
-        contentTextStyle: type.bodyMedium?.copyWith(color: canvas),
+        contentTextStyle: styles.size14(color: canvas),
         actionTextColor: semantic.onPrimary,
         shape: control,
       ),

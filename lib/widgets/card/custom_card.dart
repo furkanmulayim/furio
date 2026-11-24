@@ -1,5 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
+import '../../extensions/custom_context_extension.dart';
+
 class CustomCard extends StatelessWidget {
   const CustomCard({
     required this.child,
@@ -16,7 +18,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final styles = context.typo;
     return Card(
       child: Padding(
         padding: padding,
@@ -24,14 +26,13 @@ class CustomCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (title != null) Text(title!, style: theme.textTheme.titleMedium),
+            if (title != null)
+              Text(title!, style: styles.size18(weight: FontWeight.w600)),
             if (title != null && subtitle != null) const SizedBox(height: 4),
             if (subtitle != null)
               Text(
                 subtitle!,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
+                style: styles.size14(color: context.color.textSecondary),
               ),
             if (title != null || subtitle != null) const SizedBox(height: 16),
             child,

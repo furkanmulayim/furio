@@ -6,30 +6,18 @@ import 'typography/custom_text_styles.dart';
 
 /// Bileşen temalarını Furio'nun tema renkleriyle oluşturur.
 abstract final class CustomWidgetThemes {
-  static SliderThemeData slider(CustomColorsExtension colors) =>
-      SliderThemeData(
-        trackHeight: 4,
-        activeTrackColor: colors.primary,
-        inactiveTrackColor: colors.border,
-        thumbColor: colors.primary,
-        overlayColor: colors.primary.withValues(alpha: 0.12),
-        disabledActiveTrackColor: colors.disabled,
-        disabledInactiveTrackColor: colors.border,
-        disabledThumbColor: colors.disabled,
-        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
-      );
-
   static SwitchThemeData switchTheme(CustomColorsExtension colors) =>
       SwitchThemeData(
-        thumbColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.disabled)
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.disabled)) return colors.surface;
+          return states.contains(WidgetState.selected)
               ? colors.surface
-              : Colors.white,
-        ),
+              : colors.textPrimary;
+        }),
         trackColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.disabled)) return colors.border;
           return states.contains(WidgetState.selected)
-              ? colors.primary
+              ? colors.textSecondary
               : colors.border;
         }),
         trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
@@ -68,17 +56,6 @@ abstract final class CustomWidgetThemes {
         ),
         clipBehavior: Clip.antiAlias,
       );
-
-  static TextTheme textTheme(CustomColorsExtension colors) => TextTheme(
-    displaySmall: CustomTextStyles(colors).size28(weight: FontWeight.w700),
-    headlineMedium: CustomTextStyles(colors).size26(weight: FontWeight.w700),
-    titleLarge: CustomTextStyles(colors).size21(weight: FontWeight.w600),
-    titleMedium: CustomTextStyles(colors).size18(weight: FontWeight.w600),
-    bodyLarge: CustomTextStyles(colors).size16(),
-    bodyMedium: CustomTextStyles(colors).size14(),
-    bodySmall: CustomTextStyles(colors).size12(color: colors.textSecondary),
-    labelLarge: CustomTextStyles(colors).size15(weight: FontWeight.w600),
-  );
 
   static FilledButtonThemeData filledButton(CustomColorsExtension colors) =>
       FilledButtonThemeData(
