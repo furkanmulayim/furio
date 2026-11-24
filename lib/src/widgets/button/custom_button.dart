@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-class FurioButton extends StatelessWidget {
-  const FurioButton({
+class CustomButton extends StatelessWidget {
+  const CustomButton({
     required this.label,
     required this.onPressed,
     this.icon,

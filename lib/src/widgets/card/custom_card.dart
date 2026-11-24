@@ -1,7 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 
-class FurioCard extends StatelessWidget {
-  const FurioCard({
+class CustomCard extends StatelessWidget {
+  const CustomCard({
     required this.child,
     this.title,
     this.subtitle,

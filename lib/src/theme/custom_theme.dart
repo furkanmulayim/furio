@@ -1,20 +1,20 @@
 import 'package:material_ui/material_ui.dart';
 
-import 'colors/furio_colors.dart';
-import 'colors/furio_colors_extension.dart';
-import 'furio_widget_themes.dart';
-import 'shapes/furio_corners.dart';
-import 'typography/furio_typography.dart';
+import 'colors/custom_colors.dart';
+import 'colors/custom_colors_extension.dart';
+import 'custom_widget_themes.dart';
+import 'shapes/custom_corners.dart';
+import 'typography/custom_typography.dart';
 
-abstract final class FurioTheme {
+abstract final class CustomTheme {
   static ThemeData light() => _build(Brightness.light);
   static ThemeData dark() => _build(Brightness.dark);
 
   static ThemeData _build(Brightness brightness) {
     final night = brightness == Brightness.dark;
     final semantic = night
-        ? FurioColorsExtension.dark
-        : FurioColorsExtension.light;
+        ? CustomColorsExtension.dark
+        : CustomColorsExtension.light;
     final ink = semantic.textPrimary;
     final muted = semantic.textSecondary;
     final canvas = semantic.surface;
@@ -26,7 +26,9 @@ abstract final class FurioTheme {
       brightness: brightness,
       primary: accent,
       onPrimary: semantic.onPrimary,
-      secondary: night ? FurioColors.secondaryDark : FurioColors.secondaryLight,
+      secondary: night
+          ? CustomColors.secondaryDark
+          : CustomColors.secondaryLight,
       onSecondary: semantic.onPrimary,
       surface: canvas,
       onSurface: ink,
@@ -34,38 +36,38 @@ abstract final class FurioTheme {
       surfaceContainerLowest: panel,
       surfaceContainerLow: panel,
       surfaceContainerHighest: night
-          ? FurioColors.surfaceContainerHighestDark
-          : FurioColors.surfaceContainerHighestLight,
+          ? CustomColors.surfaceContainerHighestDark
+          : CustomColors.surfaceContainerHighestLight,
       outline: line,
       outlineVariant: line,
       error: Colors.red,
       onError: semantic.onPrimary,
       scrim: Colors.black,
     );
-    final type = FurioWidgetThemes.textTheme(semantic);
-    final control = RoundedRectangleBorder(borderRadius: FurioCorners.control);
+    final type = CustomWidgetThemes.textTheme(semantic);
+    final control = RoundedRectangleBorder(borderRadius: CustomCorners.control);
     OutlineInputBorder inputBorder(Color color, [double width = 1]) =>
         OutlineInputBorder(
-          borderRadius: FurioCorners.control,
+          borderRadius: CustomCorners.control,
           borderSide: BorderSide(color: color, width: width),
         );
 
     return ThemeData(
       useMaterial3: true,
-      fontFamily: FurioTypography.packageFontFamily,
+      fontFamily: CustomTypography.packageFontFamily,
       extensions: [semantic],
       brightness: brightness,
       colorScheme: colors,
       scaffoldBackgroundColor: canvas,
       disabledColor: semantic.disabled,
       textTheme: type,
-      appBarTheme: FurioWidgetThemes.appBar(semantic, brightness: brightness),
+      appBarTheme: CustomWidgetThemes.appBar(semantic, brightness: brightness),
       cardTheme: CardThemeData(
         elevation: 0,
         margin: EdgeInsets.zero,
         color: panel,
         shape: RoundedRectangleBorder(
-          borderRadius: FurioCorners.panel,
+          borderRadius: CustomCorners.panel,
           side: BorderSide(color: line),
         ),
       ),
@@ -84,7 +86,7 @@ abstract final class FurioTheme {
         errorBorder: inputBorder(colors.error),
         focusedErrorBorder: inputBorder(colors.error, 2),
       ),
-      filledButtonTheme: FurioWidgetThemes.filledButton(semantic),
+      filledButtonTheme: CustomWidgetThemes.filledButton(semantic),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           minimumSize: const Size(64, 50),
@@ -97,20 +99,20 @@ abstract final class FurioTheme {
         style: TextButton.styleFrom(shape: control, textStyle: type.labelLarge),
       ),
       dividerTheme: DividerThemeData(color: line, thickness: 1, space: 24),
-      bottomSheetTheme: FurioWidgetThemes.bottomSheet(semantic),
+      bottomSheetTheme: CustomWidgetThemes.bottomSheet(semantic),
       dialogTheme: DialogThemeData(
         backgroundColor: panel,
-        shape: const RoundedRectangleBorder(borderRadius: FurioCorners.panel),
+        shape: const RoundedRectangleBorder(borderRadius: CustomCorners.panel),
         titleTextStyle: type.titleLarge,
         contentTextStyle: type.bodyLarge,
       ),
-      chipTheme: FurioWidgetThemes.chip(semantic),
-      switchTheme: FurioWidgetThemes.switchTheme(semantic),
+      chipTheme: CustomWidgetThemes.chip(semantic),
+      switchTheme: CustomWidgetThemes.switchTheme(semantic),
       checkboxTheme: CheckboxThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),
       // Flutter, hizalamayı sekme çubuğunun kaydırma ayarına göre seçer.
-      tabBarTheme: FurioWidgetThemes.tabBar(semantic, tabAlignment: null),
+      tabBarTheme: CustomWidgetThemes.tabBar(semantic, tabAlignment: null),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: panel,
         indicatorColor: accent.withValues(alpha: 0.16),

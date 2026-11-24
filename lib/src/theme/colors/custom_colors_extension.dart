@@ -1,10 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 
-import 'furio_colors.dart';
+import 'custom_colors.dart';
 
 @immutable
-class FurioColorsExtension extends ThemeExtension<FurioColorsExtension> {
-  const FurioColorsExtension({
+class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
+  const CustomColorsExtension({
     required this.primary,
     required this.onPrimary,
     required this.surface,
@@ -25,33 +25,33 @@ class FurioColorsExtension extends ThemeExtension<FurioColorsExtension> {
   final Color border;
   final Color disabled;
 
-  static const light = FurioColorsExtension(
-    primary: FurioColors.primaryLight,
-    onPrimary: FurioColors.onPrimaryLight,
-    surface: FurioColors.surfaceLight,
-    surfaceSheet: FurioColors.surfaceSheetLight,
-    card: FurioColors.cardLight,
-    textPrimary: FurioColors.textPrimaryLight,
-    textSecondary: FurioColors.textSecondaryLight,
-    border: FurioColors.borderLight,
-    disabled: FurioColors.disabledLight,
+  static const light = CustomColorsExtension(
+    primary: CustomColors.primaryLight,
+    onPrimary: CustomColors.onPrimaryLight,
+    surface: CustomColors.surfaceLight,
+    surfaceSheet: CustomColors.surfaceSheetLight,
+    card: CustomColors.cardLight,
+    textPrimary: CustomColors.textPrimaryLight,
+    textSecondary: CustomColors.textSecondaryLight,
+    border: CustomColors.borderLight,
+    disabled: CustomColors.disabledLight,
   );
 
-  static const dark = FurioColorsExtension(
-    primary: FurioColors.primaryDark,
-    onPrimary: FurioColors.onPrimaryDark,
-    surface: FurioColors.surfaceDark,
-    surfaceSheet: FurioColors.surfaceSheetDark,
-    card: FurioColors.cardDark,
-    textPrimary: FurioColors.textPrimaryDark,
-    textSecondary: FurioColors.textSecondaryDark,
-    border: FurioColors.borderDark,
-    disabled: FurioColors.disabledDark,
+  static const dark = CustomColorsExtension(
+    primary: CustomColors.primaryDark,
+    onPrimary: CustomColors.onPrimaryDark,
+    surface: CustomColors.surfaceDark,
+    surfaceSheet: CustomColors.surfaceSheetDark,
+    card: CustomColors.cardDark,
+    textPrimary: CustomColors.textPrimaryDark,
+    textSecondary: CustomColors.textSecondaryDark,
+    border: CustomColors.borderDark,
+    disabled: CustomColors.disabledDark,
   );
 
-  factory FurioColorsExtension.fromTheme(ThemeData theme) {
+  factory CustomColorsExtension.fromTheme(ThemeData theme) {
     final scheme = theme.colorScheme;
-    return FurioColorsExtension(
+    return CustomColorsExtension(
       primary: scheme.primary,
       onPrimary: scheme.onPrimary,
       surface: scheme.surface,
@@ -66,7 +66,7 @@ class FurioColorsExtension extends ThemeExtension<FurioColorsExtension> {
   }
 
   @override
-  FurioColorsExtension copyWith({
+  CustomColorsExtension copyWith({
     Color? primary,
     Color? onPrimary,
     Color? surface,
@@ -76,7 +76,7 @@ class FurioColorsExtension extends ThemeExtension<FurioColorsExtension> {
     Color? textSecondary,
     Color? border,
     Color? disabled,
-  }) => FurioColorsExtension(
+  }) => CustomColorsExtension(
     primary: primary ?? this.primary,
     onPrimary: onPrimary ?? this.onPrimary,
     surface: surface ?? this.surface,
@@ -89,9 +89,9 @@ class FurioColorsExtension extends ThemeExtension<FurioColorsExtension> {
   );
 
   @override
-  FurioColorsExtension lerp(covariant FurioColorsExtension? other, double t) {
+  CustomColorsExtension lerp(covariant CustomColorsExtension? other, double t) {
     if (other == null) return this;
-    return FurioColorsExtension(
+    return CustomColorsExtension(
       primary: Color.lerp(primary, other.primary, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       surface: Color.lerp(surface, other.surface, t)!,

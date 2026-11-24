@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-abstract final class FurioDepth {
+abstract final class CustomDepth {
   static const floating = [
     BoxShadow(color: Color(0x18000000), blurRadius: 24, offset: Offset(0, 8)),
   ];

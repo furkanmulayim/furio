@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-abstract final class FurioColors {
+abstract final class CustomColors {
   static const primaryLight = Color(0xFF18181B);
   static const primaryDark = Color(0xFFF4F4F5);
   static const onPrimaryLight = Color(0xFFFAFAFA);

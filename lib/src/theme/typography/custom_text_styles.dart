@@ -1,17 +1,17 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../colors/furio_colors_extension.dart';
-import 'furio_typography.dart';
+import '../colors/custom_colors_extension.dart';
+import 'custom_typography.dart';
 
-class FurioTextStyles {
-  const FurioTextStyles(this._colors);
+class CustomTextStyles {
+  const CustomTextStyles(this._colors);
 
-  final FurioColorsExtension _colors;
+  final CustomColorsExtension _colors;
 
   TextStyle _style(double size, {Color? color, FontWeight? weight}) {
     return TextStyle(
-      fontFamily: FurioTypography.fontFamily,
-      package: FurioTypography.fontPackage,
+      fontFamily: CustomTypography.fontFamily,
+      package: CustomTypography.fontPackage,
       fontSize: size,
       fontWeight: weight ?? FontWeight.w500,
       fontStyle: FontStyle.normal,

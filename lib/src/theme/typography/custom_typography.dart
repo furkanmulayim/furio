@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-abstract final class FurioTypography {
+abstract final class CustomTypography {
   static const fontFamily = 'Urbanist';
   static const fontPackage = 'furio';
   static const packageFontFamily = 'packages/furio/Urbanist';

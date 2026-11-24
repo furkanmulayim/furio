@@ -46,10 +46,10 @@ furio:
 
 | Bileşen | Özellikler |
 | --- | --- |
-| `FurioButton` | İkon, yüklenme göstergesi ve devre dışı durum |
-| `FurioCard` | Başlık, açıklama ve özelleştirilebilir içerik |
-| `FurioTextField` | Form doğrulaması, klavye ve parola seçenekleri |
-| `FurioSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
+| `CustomButton` | İkon, yüklenme göstergesi ve devre dışı durum |
+| `CustomCard` | Başlık, açıklama ve özelleştirilebilir içerik |
+| `CustomTextField` | Form doğrulaması, klavye ve parola seçenekleri |
+| `CustomSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
 
 ## Hızlı başlangıç
 
@@ -65,23 +65,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'Furio',
-    theme: FurioTheme.light(),
-    darkTheme: FurioTheme.dark(),
+    theme: CustomTheme.light(),
+    darkTheme: CustomTheme.dark(),
     themeMode: ThemeMode.system,
     home: Scaffold(
       appBar: AppBar(title: const Text('Profil')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
-        child: FurioCard(
+        child: CustomCard(
           title: 'Hesap bilgileri',
           subtitle: 'Bilgilerini buradan düzenleyebilirsin.',
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const FurioTextField(label: 'Ad soyad'),
+              const CustomTextField(label: 'Ad soyad'),
               const SizedBox(height: 16),
-              FurioButton(
+              CustomButton(
                 label: 'Kaydet',
                 icon: Icons.check,
                 onPressed: () {},
@@ -97,7 +97,7 @@ class MyApp extends StatelessWidget {
 
 ## Tema ve tipografi
 
-`FurioTheme.light()` ve `FurioTheme.dark()`; buton, kart, metin alanı, app bar, sekme, switch, chip ve sheet görünümlerini birlikte yapılandırır.
+`CustomTheme.light()` ve `CustomTheme.dark()`; buton, kart, metin alanı, app bar, sekme, switch, chip ve sheet görünümlerini birlikte yapılandırır.
 
 `MaterialApp` altındaki bir `BuildContext` üzerinden renklere ve yazı stillerine erişebilirsiniz:
 
@@ -115,8 +115,8 @@ Text(
 Temayı uygulamanıza göre değiştirebilirsiniz:
 
 ```dart
-final theme = FurioTheme.light().copyWith(
-  appBarTheme: FurioTheme.light().appBarTheme.copyWith(centerTitle: true),
+final theme = CustomTheme.light().copyWith(
+  appBarTheme: CustomTheme.light().appBarTheme.copyWith(centerTitle: true),
 );
 ```
 
@@ -130,9 +130,9 @@ showModalBottomSheet<void>(
   isScrollControlled: true,
   useSafeArea: true,
   showDragHandle: false,
-  builder: (sheetContext) => FurioSheet(
+  builder: (sheetContext) => CustomSheet(
     title: 'Filtreler',
-    content: const FurioTextField(label: 'Ara'),
+    content: const CustomTextField(label: 'Ara'),
     onClose: () => Navigator.of(sheetContext).pop(),
     buttonText: 'Uygula',
     onButtonPressed: () => Navigator.of(sheetContext).pop(),
@@ -157,8 +157,8 @@ lib/
     │   ├── colors/
     │   ├── typography/
     │   ├── shapes/
-    │   ├── furio_theme.dart
-    │   └── furio_widget_themes.dart
+    │   ├── custom_theme.dart
+    │   └── custom_widget_themes.dart
     └── widgets/
         ├── button/
         ├── card/

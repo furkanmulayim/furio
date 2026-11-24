@@ -1,12 +1,12 @@
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
-import 'colors/furio_colors_extension.dart';
-import 'typography/furio_text_styles.dart';
+import 'colors/custom_colors_extension.dart';
+import 'typography/custom_text_styles.dart';
 
 /// Bileşen temalarını Furio'nun tema renkleriyle oluşturur.
-abstract final class FurioWidgetThemes {
-  static SwitchThemeData switchTheme(FurioColorsExtension colors) =>
+abstract final class CustomWidgetThemes {
+  static SwitchThemeData switchTheme(CustomColorsExtension colors) =>
       SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith(
           (states) => states.contains(WidgetState.disabled)
@@ -25,15 +25,15 @@ abstract final class FurioWidgetThemes {
         thumbIcon: const WidgetStatePropertyAll(Icon(null)),
       );
 
-  static ChipThemeData chip(FurioColorsExtension colors) => ChipThemeData(
+  static ChipThemeData chip(CustomColorsExtension colors) => ChipThemeData(
     color: WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) return colors.border;
       return states.contains(WidgetState.selected)
           ? colors.primary.withValues(alpha: 0.10)
           : colors.surface;
     }),
-    labelStyle: FurioTextStyles(colors).size14(color: colors.textSecondary),
-    secondaryLabelStyle: FurioTextStyles(colors)
+    labelStyle: CustomTextStyles(colors).size14(color: colors.textSecondary),
+    secondaryLabelStyle: CustomTextStyles(colors)
         .size14(color: colors.primary, weight: FontWeight.w600),
     side: BorderSide.none,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -45,7 +45,7 @@ abstract final class FurioWidgetThemes {
     surfaceTintColor: Colors.transparent,
   );
 
-  static BottomSheetThemeData bottomSheet(FurioColorsExtension colors) =>
+  static BottomSheetThemeData bottomSheet(CustomColorsExtension colors) =>
       BottomSheetThemeData(
         backgroundColor: colors.surfaceSheet,
         modalBackgroundColor: colors.surfaceSheet,
@@ -56,25 +56,25 @@ abstract final class FurioWidgetThemes {
         clipBehavior: Clip.antiAlias,
       );
 
-  static TextTheme textTheme(FurioColorsExtension colors) => TextTheme(
-    displaySmall: FurioTextStyles(colors).size28(weight: FontWeight.w700),
-    headlineMedium: FurioTextStyles(colors).size26(weight: FontWeight.w700),
-    titleLarge: FurioTextStyles(colors).size21(weight: FontWeight.w600),
-    titleMedium: FurioTextStyles(colors).size18(weight: FontWeight.w600),
-    bodyLarge: FurioTextStyles(colors).size16(),
-    bodyMedium: FurioTextStyles(colors).size14(),
-    bodySmall: FurioTextStyles(colors).size12(color: colors.textSecondary),
-    labelLarge: FurioTextStyles(colors).size15(weight: FontWeight.w600),
+  static TextTheme textTheme(CustomColorsExtension colors) => TextTheme(
+    displaySmall: CustomTextStyles(colors).size28(weight: FontWeight.w700),
+    headlineMedium: CustomTextStyles(colors).size26(weight: FontWeight.w700),
+    titleLarge: CustomTextStyles(colors).size21(weight: FontWeight.w600),
+    titleMedium: CustomTextStyles(colors).size18(weight: FontWeight.w600),
+    bodyLarge: CustomTextStyles(colors).size16(),
+    bodyMedium: CustomTextStyles(colors).size14(),
+    bodySmall: CustomTextStyles(colors).size12(color: colors.textSecondary),
+    labelLarge: CustomTextStyles(colors).size15(weight: FontWeight.w600),
   );
 
-  static FilledButtonThemeData filledButton(FurioColorsExtension colors) =>
+  static FilledButtonThemeData filledButton(CustomColorsExtension colors) =>
       FilledButtonThemeData(
         style: FilledButton.styleFrom(
           minimumSize: const Size(64, 50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
           ),
-          textStyle: FurioTextStyles(colors).size15(weight: FontWeight.w600),
+          textStyle: CustomTextStyles(colors).size15(weight: FontWeight.w600),
           backgroundColor: colors.primary,
           foregroundColor: colors.onPrimary,
           disabledBackgroundColor: colors.disabled,
@@ -83,7 +83,7 @@ abstract final class FurioWidgetThemes {
       );
 
   static AppBarThemeData appBar(
-    FurioColorsExtension colors, {
+    CustomColorsExtension colors, {
     required Brightness brightness,
   }) => AppBarThemeData(
     systemOverlayStyle: brightness == Brightness.dark
@@ -91,7 +91,7 @@ abstract final class FurioWidgetThemes {
         : SystemUiOverlayStyle.dark,
     backgroundColor: colors.card,
     surfaceTintColor: Colors.transparent,
-    titleTextStyle: FurioTextStyles(colors).size21(),
+    titleTextStyle: CustomTextStyles(colors).size21(),
     elevation: 0,
     scrolledUnderElevation: 0,
     toolbarHeight: 64,
@@ -100,15 +100,15 @@ abstract final class FurioWidgetThemes {
 
   /// Varsayılan [TabAlignment.start] kaydırılabilir sekmeler içindir.
   static TabBarThemeData tabBar(
-    FurioColorsExtension colors, {
+    CustomColorsExtension colors, {
     TabAlignment? tabAlignment = TabAlignment.start,
   }) => TabBarThemeData(
     tabAlignment: tabAlignment,
     labelPadding: const EdgeInsets.symmetric(horizontal: 12),
     labelColor: colors.primary,
     unselectedLabelColor: colors.textSecondary,
-    labelStyle: FurioTextStyles(colors).size14(weight: FontWeight.w600),
-    unselectedLabelStyle: FurioTextStyles(colors).size14(),
+    labelStyle: CustomTextStyles(colors).size14(weight: FontWeight.w600),
+    unselectedLabelStyle: CustomTextStyles(colors).size14(),
     indicatorColor: colors.primary,
     dividerColor: colors.border,
     splashFactory: NoSplash.splashFactory,

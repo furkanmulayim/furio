@@ -1,10 +1,10 @@
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
-import '../../extensions/furio_context_extension.dart';
+import '../../extensions/custom_context_extension.dart';
 
-class FurioTextField extends StatelessWidget {
-  const FurioTextField({
+class CustomTextField extends StatelessWidget {
+  const CustomTextField({
     required this.label,
     this.headingBraceledText,
     this.controller,

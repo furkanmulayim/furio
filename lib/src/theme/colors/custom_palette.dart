@@ -1,6 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
-abstract final class FurioPalette {
+abstract final class CustomPalette {
   static const iris = Color(0xFF5146B5);
   static const lilac = Color(0xFFC5BEFF);
   static const porcelain = Color(0xFFFFFCF6);

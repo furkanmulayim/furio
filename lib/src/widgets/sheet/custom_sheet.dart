@@ -2,11 +2,11 @@ import 'dart:math' as math;
 
 import 'package:material_ui/material_ui.dart';
 
-import '../../extensions/furio_context_extension.dart';
-import '../button/furio_button.dart';
+import '../../extensions/custom_context_extension.dart';
+import '../button/custom_button.dart';
 
-class FurioSheet extends StatelessWidget {
-  const FurioSheet({
+class CustomSheet extends StatelessWidget {
+  const CustomSheet({
     required this.content,
     this.title,
     this.onClose,
@@ -99,7 +99,7 @@ class FurioSheet extends StatelessWidget {
                     if (onButtonPressed != null)
                       Padding(
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                        child: FurioButton(
+                        child: CustomButton(
                           label: buttonText ?? 'Uygula',
                           onPressed: isButtonDisabled ? null : onButtonPressed,
                         ),
