@@ -6,6 +6,19 @@ import 'typography/custom_text_styles.dart';
 
 /// Bileşen temalarını Furio'nun tema renkleriyle oluşturur.
 abstract final class CustomWidgetThemes {
+  static SliderThemeData slider(CustomColorsExtension colors) =>
+      SliderThemeData(
+        trackHeight: 4,
+        activeTrackColor: colors.primary,
+        inactiveTrackColor: colors.border,
+        thumbColor: colors.primary,
+        overlayColor: colors.primary.withValues(alpha: 0.12),
+        disabledActiveTrackColor: colors.disabled,
+        disabledInactiveTrackColor: colors.border,
+        disabledThumbColor: colors.disabled,
+        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+      );
+
   static SwitchThemeData switchTheme(CustomColorsExtension colors) =>
       SwitchThemeData(
         thumbColor: WidgetStateProperty.resolveWith(

@@ -108,6 +108,7 @@ abstract final class CustomTheme {
       ),
       chipTheme: CustomWidgetThemes.chip(semantic),
       switchTheme: CustomWidgetThemes.switchTheme(semantic),
+      sliderTheme: CustomWidgetThemes.slider(semantic),
       checkboxTheme: CheckboxThemeData(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       ),

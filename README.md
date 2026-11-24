@@ -54,7 +54,10 @@ furio:
 ## Hızlı başlangıç
 
 ```dart
-import 'package:furio/furio.dart';
+import 'package:furio/theme/custom_theme.dart';
+import 'package:furio/widgets/button/custom_button.dart';
+import 'package:furio/widgets/card/custom_card.dart';
+import 'package:furio/widgets/text_field/custom_text_field.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(const MyApp());
@@ -102,6 +105,10 @@ class MyApp extends StatelessWidget {
 `MaterialApp` altındaki bir `BuildContext` üzerinden renklere ve yazı stillerine erişebilirsiniz:
 
 ```dart
+import 'package:furio/extensions/custom_context_extension.dart';
+```
+
+```dart
 Text(
   'Merhaba Furio',
   style: context.typo.size24(
@@ -125,6 +132,11 @@ final theme = CustomTheme.light().copyWith(
 Bir widget içindeki `context` ile:
 
 ```dart
+import 'package:furio/widgets/sheet/custom_sheet.dart';
+import 'package:furio/widgets/text_field/custom_text_field.dart';
+```
+
+```dart
 showModalBottomSheet<void>(
   context: context,
   isScrollControlled: true,
@@ -146,31 +158,18 @@ showModalBottomSheet<void>(
 
 ```text
 lib/
-├── furio.dart
-├── exports/
-│   ├── theme.dart
-│   ├── widgets.dart
-│   └── extensions.dart
-└── src/
-    ├── extensions/
-    ├── theme/
-    │   ├── colors/
-    │   ├── typography/
-    │   ├── shapes/
-    │   ├── custom_theme.dart
-    │   └── custom_widget_themes.dart
-    └── widgets/
-        ├── button/
-        ├── card/
-        ├── sheet/
-        └── text_field/
+├── extensions/
+├── theme/
+│   ├── colors/
+│   ├── typography/
+│   ├── shapes/
+│   ├── custom_theme.dart
+│   └── custom_widget_themes.dart
+└── widgets/
+    ├── button/
+    ├── card/
+    ├── icon/
+    ├── sheet/
+    └── text_field/
 assets/fonts/urbanist/
-```
-
-Tüm API için `package:furio/furio.dart` kullanın. Daha dar kapsamlı import seçenekleri de vardır:
-
-```dart
-import 'package:furio/exports/theme.dart';
-import 'package:furio/exports/widgets.dart';
-import 'package:furio/exports/extensions.dart';
 ```

@@ -1,9 +1,0 @@
-export '../src/theme/colors/custom_colors.dart';
-export '../src/theme/colors/custom_colors_extension.dart';
-export '../src/theme/colors/custom_palette.dart';
-export '../src/theme/custom_theme.dart';
-export '../src/theme/custom_widget_themes.dart';
-export '../src/theme/shapes/custom_corners.dart';
-export '../src/theme/shapes/custom_depth.dart';
-export '../src/theme/typography/custom_text_styles.dart';
-export '../src/theme/typography/custom_typography.dart';
