@@ -7,26 +7,21 @@ import 'typography/custom_text_styles.dart';
 /// Bileşen temalarını Furio'nun tema renkleriyle oluşturur.
 abstract final class CustomWidgetThemes {
   static SwitchThemeData switchTheme(CustomColorsExtension colors) {
-    final inactiveThumb = Color.lerp(
-      colors.textSecondary,
-      colors.textPrimary,
-      0.35,
-    )!;
     return SwitchThemeData(
       thumbColor: const WidgetStatePropertyAll(Colors.transparent),
       trackColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.disabled)) return colors.border;
         return states.contains(WidgetState.selected)
-            ? colors.secondary
+            ? colors.primary
             : colors.border;
       }),
       trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
       trackOutlineWidth: const WidgetStatePropertyAll(0),
       thumbIcon: WidgetStateProperty.resolveWith((states) {
         final color = switch (states) {
-          _ when states.contains(WidgetState.disabled) => colors.disabled,
+          _ when states.contains(WidgetState.disabled) => colors.card,
           _ when states.contains(WidgetState.selected) => colors.onPrimary,
-          _ => inactiveThumb,
+          _ => colors.hardOnPrimary,
         };
         return Icon(Icons.circle, size: 32, color: color);
       }),

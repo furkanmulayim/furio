@@ -3,8 +3,8 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../extensions/custom_context_extension.dart';
 
-class CustomIconWidget extends StatelessWidget {
-  const CustomIconWidget({
+class FurioIcon extends StatelessWidget {
+  const FurioIcon({
     required this.path,
     required this.size,
     required this.color,

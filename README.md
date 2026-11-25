@@ -46,19 +46,24 @@ furio:
 
 | Bileşen | Özellikler |
 | --- | --- |
-| `CustomButton` | `mini` ve `big` boyutları, ikon, yüklenme göstergesi ve devre dışı durum |
-| `CustomCard` | Başlık, açıklama ve özelleştirilebilir içerik |
-| `CustomListTile` | Başlık, açıklama, ikon ve switch, ok veya badge gibi sağ içerik |
-| `CustomTextField` | Form doğrulaması, klavye ve parola seçenekleri |
-| `CustomSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
+| `FurioButton` | `mini` ve `big` boyutları, ikon, yüklenme göstergesi ve devre dışı durum |
+| `FurioCard` | Başlık, açıklama ve özelleştirilebilir içerik |
+| `FurioListTile` | Başlık, açıklama, ikon ve switch, ok veya badge gibi sağ içerik |
+| `FurioTextField` | Form doğrulaması, klavye ve parola seçenekleri |
+| `FurioSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
+| `FurioDatePicker` | Bottom sheet içinde `past`, `future` veya `any` modunda gün seçimi sunar. |
+| `FurioIcon` | SVG ikonları belirlenen boyut ve renkte, isteğe bağlı çerçeveyle gösterir. |
+| `FurioSegmentedButton` | Yatay seçenekler arasında tek seçim yapmayı sağlar ve seçimi animasyonla vurgular. |
+| `FurioSelectField` | Seçenekleri bottom sheet içinde açar ve seçili değeri alanda gösterir. |
+| `FurioSnackBar` | İkonlu bildirim mesajını isteğe bağlı bir işlemle gösterir. |
 
 ## Hızlı başlangıç
 
 ```dart
 import 'package:furio/theme/custom_theme.dart';
-import 'package:furio/widgets/button/custom_button.dart';
-import 'package:furio/widgets/card/custom_card.dart';
-import 'package:furio/widgets/text_field/custom_text_field.dart';
+import 'package:furio/widgets/button/furio_button.dart';
+import 'package:furio/widgets/card/furio_card.dart';
+import 'package:furio/widgets/text_field/furio_text_field.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(const MyApp());
@@ -76,16 +81,16 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(title: const Text('Profil')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
-        child: CustomCard(
+        child: FurioCard(
           title: 'Hesap bilgileri',
           subtitle: 'Bilgilerini buradan düzenleyebilirsin.',
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const CustomTextField(label: 'Ad soyad'),
+              const FurioTextField(label: 'Ad soyad'),
               const SizedBox(height: 16),
-              CustomButton.big(
+              FurioButton.big(
                 label: 'Kaydet',
                 icon: Icons.check,
                 onPressed: () {},
@@ -133,8 +138,8 @@ final theme = CustomTheme.light().copyWith(
 Bir widget içindeki `context` ile:
 
 ```dart
-import 'package:furio/widgets/sheet/custom_sheet.dart';
-import 'package:furio/widgets/text_field/custom_text_field.dart';
+import 'package:furio/widgets/sheet/furio_sheet.dart';
+import 'package:furio/widgets/text_field/furio_text_field.dart';
 ```
 
 ```dart
@@ -143,9 +148,9 @@ showModalBottomSheet<void>(
   isScrollControlled: true,
   useSafeArea: true,
   showDragHandle: false,
-  builder: (sheetContext) => CustomSheet(
+  builder: (sheetContext) => FurioSheet(
     title: 'Filtreler',
-    content: const CustomTextField(label: 'Ara'),
+    content: const FurioTextField(label: 'Ara'),
     onClose: () => Navigator.of(sheetContext).pop(),
     buttonText: 'Uygula',
     onButtonPressed: () => Navigator.of(sheetContext).pop(),
@@ -169,8 +174,13 @@ lib/
 └── widgets/
     ├── button/
     ├── card/
+    ├── date_picker/
     ├── icon/
+    ├── list_tile/
+    ├── segmented_button/
+    ├── select_field/
     ├── sheet/
+    ├── snack_bar/
     └── text_field/
 assets/fonts/urbanist/
 ```

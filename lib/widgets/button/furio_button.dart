@@ -1,9 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 
-class CustomButton extends StatelessWidget {
+class FurioButton extends StatelessWidget {
   static const double _minimumHeight = 44;
 
-  const CustomButton({
+  const FurioButton({
     required this.label,
     required this.onPressed,
     this.icon,
@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
     super.key,
   }) : _fillsWidth = false;
 
-  const CustomButton._big({
+  const FurioButton._big({
     required this.label,
     required this.onPressed,
     this.icon,
@@ -21,26 +21,26 @@ class CustomButton extends StatelessWidget {
     super.key,
   }) : _fillsWidth = true;
 
-  const factory CustomButton.mini({
+  const factory FurioButton.mini({
     required String label,
     required VoidCallback? onPressed,
     IconData? icon,
     bool isLoading,
     double height,
     Key? key,
-  }) = CustomButton;
+  }) = FurioButton;
 
   /// Fills the available width when the parent provides a finite width.
   ///
   /// Use Expanded around the button to fill the remaining space in a Row.
-  const factory CustomButton.big({
+  const factory FurioButton.big({
     required String label,
     required VoidCallback? onPressed,
     IconData? icon,
     bool isLoading,
     double height,
     Key? key,
-  }) = CustomButton._big;
+  }) = FurioButton._big;
 
   final String label;
   final VoidCallback? onPressed;

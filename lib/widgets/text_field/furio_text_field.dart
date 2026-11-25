@@ -3,8 +3,8 @@ import 'package:material_ui/material_ui.dart';
 
 import '../../extensions/custom_context_extension.dart';
 
-class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+class FurioTextField extends StatelessWidget {
+  const FurioTextField({
     required this.label,
     this.headingBraceledText,
     this.controller,

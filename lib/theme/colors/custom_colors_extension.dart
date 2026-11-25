@@ -8,6 +8,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     required this.primary,
     Color? secondary,
     required this.onPrimary,
+    required this.hardOnPrimary,
     required this.surface,
     required this.surfaceSheet,
     required this.card,
@@ -19,6 +20,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
   final Color primary;
   final Color secondary;
   final Color onPrimary;
+  final Color hardOnPrimary;
   final Color surface;
   final Color surfaceSheet;
   final Color card;
@@ -31,6 +33,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     primary: CustomColors.primaryLight,
     secondary: CustomColors.secondaryLight,
     onPrimary: CustomColors.onPrimaryLight,
+    hardOnPrimary: CustomColors.hardOnPrimaryLight,
     surface: CustomColors.surfaceLight,
     surfaceSheet: CustomColors.surfaceSheetLight,
     card: CustomColors.cardLight,
@@ -44,6 +47,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     primary: CustomColors.primaryDark,
     secondary: CustomColors.secondaryDark,
     onPrimary: CustomColors.onPrimaryDark,
+    hardOnPrimary: CustomColors.hardOnPrimaryDark,
     surface: CustomColors.surfaceDark,
     surfaceSheet: CustomColors.surfaceSheetDark,
     card: CustomColors.cardDark,
@@ -59,6 +63,9 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
       primary: scheme.primary,
       secondary: scheme.secondary,
       onPrimary: scheme.onPrimary,
+      hardOnPrimary: scheme.brightness == Brightness.dark
+          ? CustomColors.hardOnPrimaryDark
+          : CustomColors.hardOnPrimaryLight,
       surface: scheme.surface,
       surfaceSheet:
           theme.bottomSheetTheme.backgroundColor ?? scheme.surfaceContainerLow,
@@ -75,6 +82,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     Color? primary,
     Color? secondary,
     Color? onPrimary,
+    Color? hardOnPrimary,
     Color? surface,
     Color? surfaceSheet,
     Color? card,
@@ -86,6 +94,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     primary: primary ?? this.primary,
     secondary: secondary ?? this.secondary,
     onPrimary: onPrimary ?? this.onPrimary,
+    hardOnPrimary: hardOnPrimary ?? this.hardOnPrimary,
     surface: surface ?? this.surface,
     surfaceSheet: surfaceSheet ?? this.surfaceSheet,
     card: card ?? this.card,
@@ -102,6 +111,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
       primary: Color.lerp(primary, other.primary, t)!,
       secondary: Color.lerp(secondary, other.secondary, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
+      hardOnPrimary: Color.lerp(hardOnPrimary, other.hardOnPrimary, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       surfaceSheet: Color.lerp(surfaceSheet, other.surfaceSheet, t)!,
       card: Color.lerp(card, other.card, t)!,

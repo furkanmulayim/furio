@@ -1,8 +1,9 @@
 import 'package:material_ui/material_ui.dart';
+
 import '../../extensions/custom_context_extension.dart';
 
-class CustomListTile extends StatelessWidget {
-  const CustomListTile({
+class FurioListTile extends StatelessWidget {
+  const FurioListTile({
     required this.title,
     this.subtitle,
     this.leading,
