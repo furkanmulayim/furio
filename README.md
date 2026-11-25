@@ -48,6 +48,7 @@ furio:
 | --- | --- |
 | `CustomButton` | `mini` ve `big` boyutları, ikon, yüklenme göstergesi ve devre dışı durum |
 | `CustomCard` | Başlık, açıklama ve özelleştirilebilir içerik |
+| `CustomListTile` | Başlık, açıklama, ikon ve switch, ok veya badge gibi sağ içerik |
 | `CustomTextField` | Form doğrulaması, klavye ve parola seçenekleri |
 | `CustomSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
 

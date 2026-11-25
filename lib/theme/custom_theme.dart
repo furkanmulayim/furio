@@ -26,9 +26,7 @@ abstract final class CustomTheme {
       brightness: brightness,
       primary: accent,
       onPrimary: semantic.onPrimary,
-      secondary: night
-          ? CustomColors.secondaryDark
-          : CustomColors.secondaryLight,
+      secondary: semantic.secondary,
       onSecondary: semantic.onPrimary,
       surface: canvas,
       onSurface: ink,

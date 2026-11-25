@@ -6,6 +6,7 @@ import 'custom_colors.dart';
 class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
   const CustomColorsExtension({
     required this.primary,
+    Color? secondary,
     required this.onPrimary,
     required this.surface,
     required this.surfaceSheet,
@@ -14,8 +15,9 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     required this.textSecondary,
     required this.border,
     required this.disabled,
-  });
+  }) : secondary = secondary ?? primary;
   final Color primary;
+  final Color secondary;
   final Color onPrimary;
   final Color surface;
   final Color surfaceSheet;
@@ -27,6 +29,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
 
   static const light = CustomColorsExtension(
     primary: CustomColors.primaryLight,
+    secondary: CustomColors.secondaryLight,
     onPrimary: CustomColors.onPrimaryLight,
     surface: CustomColors.surfaceLight,
     surfaceSheet: CustomColors.surfaceSheetLight,
@@ -39,6 +42,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
 
   static const dark = CustomColorsExtension(
     primary: CustomColors.primaryDark,
+    secondary: CustomColors.secondaryDark,
     onPrimary: CustomColors.onPrimaryDark,
     surface: CustomColors.surfaceDark,
     surfaceSheet: CustomColors.surfaceSheetDark,
@@ -53,6 +57,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     final scheme = theme.colorScheme;
     return CustomColorsExtension(
       primary: scheme.primary,
+      secondary: scheme.secondary,
       onPrimary: scheme.onPrimary,
       surface: scheme.surface,
       surfaceSheet:
@@ -68,6 +73,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
   @override
   CustomColorsExtension copyWith({
     Color? primary,
+    Color? secondary,
     Color? onPrimary,
     Color? surface,
     Color? surfaceSheet,
@@ -78,6 +84,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     Color? disabled,
   }) => CustomColorsExtension(
     primary: primary ?? this.primary,
+    secondary: secondary ?? this.secondary,
     onPrimary: onPrimary ?? this.onPrimary,
     surface: surface ?? this.surface,
     surfaceSheet: surfaceSheet ?? this.surfaceSheet,
@@ -93,6 +100,7 @@ class CustomColorsExtension extends ThemeExtension<CustomColorsExtension> {
     if (other == null) return this;
     return CustomColorsExtension(
       primary: Color.lerp(primary, other.primary, t)!,
+      secondary: Color.lerp(secondary, other.secondary, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       surfaceSheet: Color.lerp(surfaceSheet, other.surfaceSheet, t)!,
