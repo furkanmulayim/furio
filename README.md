@@ -54,6 +54,7 @@ furio:
 | `FurioSheet` | Kaydırılabilir içerik, klavye desteği ve alt işlem butonu |
 | `FurioDatePicker` | Bottom sheet içinde `past`, `future` veya `any` modunda gün seçimi sunar. |
 | `FurioIcon` | SVG ikonları belirlenen boyut ve renkte, isteğe bağlı çerçeveyle gösterir. |
+| `FurioInfo` | Solda ikon, yanında soluk metin ve yarı saydam zeminle bilgi mesajı gösterir. |
 | `FurioSegmentedButton` | Yatay seçenekler arasında tek seçim yapmayı sağlar ve seçimi animasyonla vurgular. |
 | `FurioSelectField` | Seçenekleri bottom sheet içinde açar ve seçili değeri alanda gösterir. |
 | `FurioSnackBar` | İkonlu bildirim mesajını isteğe bağlı bir işlemle gösterir. |
@@ -177,6 +178,7 @@ lib/
     ├── card/
     ├── date_picker/
     ├── icon/
+    ├── info/
     ├── list_tile/
     ├── segmented_button/
     ├── select_field/
