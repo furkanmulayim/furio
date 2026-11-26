@@ -47,6 +47,7 @@ furio:
 | Bileşen | Özellikler |
 | --- | --- |
 | `FurioButton` | `mini` ve `big` boyutları, ikon, yüklenme göstergesi ve devre dışı durum |
+| `FurioSecondaryButton` | `FurioButton` ile aynı boyut ve davranış, temanın `border` zemin rengi |
 | `FurioCard` | Başlık, açıklama ve özelleştirilebilir içerik |
 | `FurioListTile` | Başlık, açıklama, ikon ve switch, ok veya badge gibi sağ içerik |
 | `FurioTextField` | Form doğrulaması, klavye ve parola seçenekleri |
