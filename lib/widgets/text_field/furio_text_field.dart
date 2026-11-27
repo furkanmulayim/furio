@@ -171,7 +171,9 @@ class FurioTextField extends StatelessWidget {
             border: border(colors.border),
             enabledBorder: border(hasError ? scheme.error : colors.border),
             focusedBorder: border(
-              hasError ? scheme.error : colors.primary,
+              hasError
+                  ? scheme.error
+                  : colors.textSecondary.withValues(alpha: 0.22),
               1.5,
             ),
             disabledBorder: border(colors.border),
