@@ -7,6 +7,7 @@ class FurioButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.enabled = true,
     this.isLoading = false,
     this.height = _minimumHeight,
     super.key,
@@ -16,6 +17,7 @@ class FurioButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.enabled = true,
     this.isLoading = false,
     this.height = _minimumHeight,
     super.key,
@@ -25,6 +27,7 @@ class FurioButton extends StatelessWidget {
     required String label,
     required VoidCallback? onPressed,
     IconData? icon,
+    bool enabled,
     bool isLoading,
     double height,
     Key? key,
@@ -37,6 +40,7 @@ class FurioButton extends StatelessWidget {
     required String label,
     required VoidCallback? onPressed,
     IconData? icon,
+    bool enabled,
     bool isLoading,
     double height,
     Key? key,
@@ -45,6 +49,7 @@ class FurioButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final IconData? icon;
+  final bool enabled;
   final bool isLoading;
   final double height;
   final bool _fillsWidth;
@@ -57,7 +62,7 @@ class FurioButton extends StatelessWidget {
         minimumSize: Size.zero,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
-      onPressed: isLoading ? null : onPressed,
+      onPressed: enabled && !isLoading ? onPressed : null,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

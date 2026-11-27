@@ -8,6 +8,7 @@ class FurioSecondaryButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.enabled = true,
     this.isLoading = false,
     this.height = 44,
     super.key,
@@ -17,6 +18,7 @@ class FurioSecondaryButton extends StatelessWidget {
     required String label,
     required VoidCallback? onPressed,
     IconData? icon,
+    bool enabled,
     bool isLoading,
     double height,
     Key? key,
@@ -26,6 +28,7 @@ class FurioSecondaryButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.icon,
+    this.enabled = true,
     this.isLoading = false,
     this.height = 44,
     super.key,
@@ -34,6 +37,7 @@ class FurioSecondaryButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final IconData? icon;
+  final bool enabled;
   final bool isLoading;
   final double height;
   final bool _fillsWidth;
@@ -67,6 +71,7 @@ class FurioSecondaryButton extends StatelessWidget {
         label: label,
         onPressed: onPressed,
         icon: icon,
+        enabled: enabled,
         isLoading: isLoading,
         height: height,
       ),
