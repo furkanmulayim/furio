@@ -21,7 +21,7 @@ class FurioInfo extends StatelessWidget {
         borderRadius: CustomCorners.control,
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, size: 18, color: foreground),
